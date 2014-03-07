@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title Vegeta Load Test Frontend
+    %link(rel="stylesheet" href="css/styles.css")
+    %script{:type => 'text/javascript', :src => '//www.google.com/jsapi'}
+    %script{:type => 'text/javascript'}
+      google.load("visualization", "1", { packages:["corechart"] });
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var resdata = google.visualization.arrayToDataTable([
+      ["#{headers[:rate]}", "#{headers[:mean_ms]}", "#{headers[:p95_ms]}", "#{headers[:p99_ms]}", "#{headers[:max_ms]}"],
+      - values.each do |r|
+        ["#{r[:rate]}", #{r[:mean_ms]}, #{r[:p95_ms]}, #{r[:p99_ms]}, #{r[:max_ms]}],
+      ]);
+      var sucdata = google.visualization.arrayToDataTable([
+      ["#{headers[:rate]}", "#{headers[:success_percent]}"],
+      - values.each do |r|
+        ["#{r[:rate]}", #{r[:success_percent]}],
+      ]);
+      var resopts = { title: 'Load Test Results', curveType: 'function', legend: { position: 'bottom' }, vAxis: { viewWindow: { min: 0 } } };
+      var sucopts = { title: 'Success Percent', curveType: 'function', legend: { position: 'bottom' }, vAxis: { viewWindow: { min: 0 }, maxValue: 100 } };
+      var rates = "#{rates}";
+      if (rates.indexOf(',') === -1) {
+      var chart = new google.visualization.ColumnChart(document.getElementById('results_div'));
+      chart.draw(resdata, resopts);
+      var chart = new google.visualization.ColumnChart(document.getElementById('success_div'));
+      chart.draw(sucdata, sucopts); }
+      else { var chart = new google.visualization.LineChart(document.getElementById('results_div'));
+      chart.draw(resdata, resopts);
+      var chart = new google.visualization.LineChart(document.getElementById('success_div'));
+      chart.draw(sucdata, sucopts); } }
+  %body
+    %h1 Vegeta Load Test - Test Results
+    %p
+      %table{:style => 'border: 1px solid; border-collapse: collapse; font-size: 12px', :align => 'center'}
+        - results.each do |r|
+          %tr{:style => 'border: 1px solid'}
+            - r.each do |c|
+              - c.drop(1).each do |v|
+                %td{:style => 'border: 1px solid; padding: 5px'}
+                  = v
+    %br/
+    %div{:id => 'results_div', :style => 'width: 800px; height: 450px; margin: 0 auto;'}
+    %br/
+    %br/
+    %div{:id => 'success_div', :style => 'width: 800px; height: 450px; margin: 0 auto;'}

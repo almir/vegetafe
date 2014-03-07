@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+html {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #eee;
+    position: relative; /* Fix for absolute positioning */
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #555;
+    text-align: center;
+}
+p {
+    font-size: 12px;
+    line-height: 22px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 700; /* Make text in header bold */
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #4183c4;
+}
+form {
+    font-size: 12px;
+    line-height: 22px;
+}
+#content {
+    font-size: 12px;
+    line-height: 22px;
+    text-align: left;
+}
+/* This is only for displaying two form buttons next to each other */
+.button-container form,
+.button-container form div {
+    display: inline;
+}
+.button-container button {
+    display: inline;
+    vertical-align: middle;
+}

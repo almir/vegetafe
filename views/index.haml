@@ -1,0 +1,42 @@
+!!!
+%html
+  %head
+    %title Vegeta Load Test Frontend
+    %link(rel="stylesheet" href="css/styles.css")
+  %body
+    %h1 Vegeta Load Test - Testing parameters
+    %p
+      %form{:method => 'post', :enctype => 'multipart/form-data'}
+        %br/
+        %table{:align => 'center'}
+          %tr{:align => 'left'}
+            %td Choose targets file*:
+            %td
+              %input{:type => 'file', :name => 'file'}
+          %tr{:align => 'left'}
+            %td Select mode:
+            %td
+              %select{:name => 'modes'}
+                %option{:value => 'rapid'} Rapid (Hit the targets with multiple rates)
+                %option{:value => 'attack'} Attack (Hit the targets)
+          %tr{:align => 'left'}
+            %td Requests per second (comma separated if mode is rapid):
+            %td
+              %input{:type => 'text', :name => 'rates'}
+          %tr{:align => 'left'}
+            %td Duration of the attack on every rate:
+            %td
+              %input{:type => 'text', :name => 'duration', :value => '10s'}
+          %tr{:align => 'left'}
+            %td Attack ordering (sequential, random):
+            %td
+              %input{:type => 'text', :name => 'ordering', :value => 'random'}
+          %tr
+            %td{:colspan => '2'}
+              %br/
+              %input{:type => 'submit', :value => 'Start', :style => 'height: 40px; width: 150px'}
+          %tr{:align => 'left'}
+            %td{:colspan => '2'}
+              %br/
+              * Each line in file should resemble this one:
+              %em GET http://www.example.com/

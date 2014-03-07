@@ -1,0 +1,34 @@
+*.gem
+*.rbc
+.bundle
+.config
+coverage
+InstalledFiles
+lib/bundler/man
+pkg
+rdoc
+spec/reports
+test/tmp
+test/version_tmp
+tmp
+
+# YARD artifacts
+.yardoc
+_yardoc
+doc/
+
+# Do not include vegeta binary
+bin/
+
+# Omit uploaded files
+uploads/
+
+# Ignore SSL Certificates directory
+ssl/
+
+# Ignore Gemfile.lock file
+Gemfile.lock
+
+# Exclude RubyMine config files from tracking
+.idea/workspace.xml
+.idea/tasks.xml
