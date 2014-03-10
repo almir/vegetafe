@@ -1,6 +1,6 @@
 ## Vegeta Frontend
 
-Ruby Sinatra frontend for vegeta load testing tool found at [https://github.com/senaduka/vegeta](https://github.com/senaduka/vegeta)
+Ruby Sinatra frontend for vegeta load testing tool found at [https://github.com/almir/vegeta](https://github.com/almir/vegeta)
 
 #### Installation
 

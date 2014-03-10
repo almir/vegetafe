@@ -9,9 +9,9 @@
       google.setOnLoadCallback(drawChart);
       function drawChart() {
       var resdata = google.visualization.arrayToDataTable([
-      ["#{headers[:rate]}", "#{headers[:mean_ms]}", "#{headers[:p95_ms]}", "#{headers[:p99_ms]}", "#{headers[:max_ms]}"],
+      ["#{headers[:rate]}", "#{headers[:mean_ms]}", "#{headers[:p50_ms]}", "#{headers[:p95_ms]}", "#{headers[:p99_ms]}", "#{headers[:max_ms]}"],
       - values.each do |r|
-        ["#{r[:rate]}", #{r[:mean_ms]}, #{r[:p95_ms]}, #{r[:p99_ms]}, #{r[:max_ms]}],
+        ["#{r[:rate]}", #{r[:mean_ms]}, #{r[:p50_ms]}, #{r[:p95_ms]}, #{r[:p99_ms]}, #{r[:max_ms]}],
       ]);
       var sucdata = google.visualization.arrayToDataTable([
       ["#{headers[:rate]}", "#{headers[:success_percent]}"],

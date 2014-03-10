@@ -93,7 +93,7 @@ configall() {
 
    # Install and configure Vegeta Frontend
    if [ ! -d /var/www/vegetafe ]; then
-      git clone git@github.com:SocialExplorer/vegetafe.git /var/www/vegetafe
+      git clone https://github.com/almir/vegetafe.git /var/www/vegetafe
       cd /var/www/vegetafe
       bundle install
    else
@@ -109,8 +109,9 @@ configall() {
    mkdir -p /var/www/vegetafe/bin
    cd /var/www/vegetafe/bin
    if [ ! -x /var/www/vegetafe/bin/vegeta ]; then
-      wget https://www.dropbox.com/s/codoxxhunozv5vu/vegeta
-      chmod +x vegeta
+      wget https://github.com/almir/vegeta/releases/download/v1.3.0/vegeta-linux-amd64.tar.gz
+      tar xvzf vegeta-linux-amd64.tar.gz
+      rm -f vegeta-linux-amd64.tar.gz
    fi
 
    # Make uploads directory

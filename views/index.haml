@@ -14,23 +14,25 @@
             %td
               %input{:type => 'file', :name => 'file'}
           %tr{:align => 'left'}
-            %td Select mode:
-            %td
-              %select{:name => 'modes'}
-                %option{:value => 'rapid'} Rapid (Hit the targets with multiple rates)
-                %option{:value => 'attack'} Attack (Hit the targets)
-          %tr{:align => 'left'}
-            %td Requests per second (comma separated if mode is rapid):
+            %td One or more comma separated requests per second:
             %td
               %input{:type => 'text', :name => 'rates'}
           %tr{:align => 'left'}
-            %td Duration of the attack on every rate:
+            %td Duration of the test on every rate:
             %td
               %input{:type => 'text', :name => 'duration', :value => '10s'}
           %tr{:align => 'left'}
             %td Attack ordering (sequential, random):
             %td
               %input{:type => 'text', :name => 'ordering', :value => 'random'}
+          %tr{:align => 'left'}
+            %td Number of redirects to follow:
+            %td
+              %input{:type => 'text', :name => 'redirects', :value => '10'}
+          %tr{:align => 'left'}
+            %td Requests timeout:
+            %td
+              %input{:type => 'text', :name => 'timeout', :value => '0'}
           %tr
             %td{:colspan => '2'}
               %br/
@@ -40,3 +42,6 @@
               %br/
               * Each line in file should resemble this one:
               %em GET http://www.example.com/
+              %br/
+              Read more at:
+              %a{:href =>  'https://github.com/almir/vegeta#-targets', :target => '_blank'} https://github.com/almir/vegeta

@@ -6,10 +6,8 @@
     %script{:type => 'text/javascript'}
       var rate = "#{rate}";
       var filename = "#{filename}"
-      var mode = "#{mode}"
       if (!filename) { alert("Please choose a targets file to upload"); }
       else if (!rate) { alert("Rate(s) cannot be empty.\nPlease specify valid rate(s)."); }
-      else if ((mode == "attack") && (rate.indexOf(',') >= 0)) { alert("Attack mode rate can be only one number.\nPlease specify valid rate."); }
       else { alert("Rate(s) can be only comma separated numbers.\nPlease specify valid rate(s)."); }
       history.back();
   %body

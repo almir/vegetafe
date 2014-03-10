@@ -1,4 +1,3 @@
-# main.rb
 set :protection, :except => [:http_origin]
 set :haml, :format => :html5
 
@@ -24,13 +23,14 @@ end
 
 post '/' do
   outfilename = SecureRandom.hex
-  mode = params[:modes].to_s
   rate = params[:rates]
   rate.gsub!(/\s/,'')
   rate.include?(',') ? rate_stripped = rate.gsub(/,/, '') : rate_stripped = rate
   rate_int = rate_stripped.to_i unless rate_stripped.match(/[^[:digit:]]+/)
   duration = params[:duration].to_s
   ordering = params[:ordering].to_s
+  redirects = params[:redirects].to_s
+  timeout = params[:timeout].to_s
 
   if params[:file]
     filename = params[:file][:filename]
@@ -41,28 +41,28 @@ post '/' do
     end
   end
 
-  if mode == 'attack' and rate.include?(',')
-    haml :error, :locals => {rate: rate, filename: filename, mode: mode}
-  elsif rate.nil? or rate.empty? or rate == 0
-    haml :error, :locals => {rate: rate, filename: filename, mode: mode}
+  if rate.nil? or rate.empty? or rate == 0
+    haml :error, :locals => {rate: rate, filename: filename}
   elsif !rate_int.is_a?(Integer)
-    haml :error, :locals => {rate: rate, filename: filename, mode: mode}
+    haml :error, :locals => {rate: rate, filename: filename}
   elsif filename.nil? or filename.empty? or filename == 0
-    haml :error, :locals => {rate: rate, filename: filename, mode: mode}
+    haml :error, :locals => {rate: rate, filename: filename}
   else
     if duration.nil? or duration.empty? or duration == 0
       duration = '10s'
     end
-
     if ordering.nil? or ordering.empty? or ordering == 0
       ordering = 'random'
     end
-
-    if mode == 'attack'
-      cmd = "#{BIN_PATH}/vegeta #{mode} -duration=#{duration} -ordering=#{ordering} -targets=#{filepath} -output=#{BIN_PATH}/#{outfilename}.bin -rate=#{rate} 2>&1"
-    else
-      cmd = "#{BIN_PATH}/vegeta #{mode} -duration=#{duration} -ordering=#{ordering} -targets=#{filepath} -output=#{BIN_PATH}/#{outfilename}.bin -rates=#{rate} 2>&1"
+    if redirects.nil? or redirects.empty? or redirects == 0
+      redirects = '10'
     end
+    if timeout.nil? or timeout.empty? or timeout == 0
+      timeout = '0'
+    end
+
+    cmd = "#{BIN_PATH}/vegeta attack -duration=#{duration} -ordering=#{ordering} -output=#{BIN_PATH}/#{outfilename}.bin -rates=#{rate} -redirects=#{redirects} -targets=#{filepath} -timeout=#{timeout} 2>&1"
+
     stream do |out|
       IO.popen(cmd, 'r') do |io|
         # This is a dirty way of displaying a css formatted output within the html tags.
