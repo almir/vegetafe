@@ -109,7 +109,7 @@ configall() {
    mkdir -p /var/www/vegetafe/bin
    cd /var/www/vegetafe/bin
    if [ ! -x /var/www/vegetafe/bin/vegeta ]; then
-      wget https://github.com/almir/vegeta/releases/download/v1.3.0/vegeta-linux-amd64.tar.gz
+      wget https://github.com/almir/vegeta/releases/download/v1.3.1/vegeta-linux-amd64.tar.gz
       tar xvzf vegeta-linux-amd64.tar.gz
       rm -f vegeta-linux-amd64.tar.gz
    fi
