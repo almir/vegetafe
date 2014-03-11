@@ -119,12 +119,15 @@ configall() {
 
    # Add iptables command to /etc/rc.local to forward everything from ports 443 to port 9292
    if [ -z "$(grep "/sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 9292" /etc/rc.local)" ]; then
+      # Add iptables rule to /etc/rc.local
       if [ -n "$(grep "exit 0" /etc/rc.local)" ]; then
          sed -i "/^exit 0/d" /etc/rc.local
          echo -e "\n# Forward everything from port 443/tcp to port 9292/tcp\n/sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 9292\n\nexit 0" >> /etc/rc.local
       else
          echo -e "\n# Forward everything from port 443/tcp to port 9292/tcp\n/sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 9292" >> /etc/rc.local
       fi
+      # Apply iptables rule immediately
+      /sbin/iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 443 -j REDIRECT --to-port 9292
    fi
 
    # Make ssl directory and generate self-signed certificate
