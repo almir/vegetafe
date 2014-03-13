@@ -1,5 +1,10 @@
 set :protection, :except => [:http_origin]
 set :haml, :format => :html5
+use Rack::SSL
+
+use Rack::Auth::Basic, 'Restricted Area' do |username, password|
+  [username, password] == [ENV['username'], ENV['password']]
+end
 
 module Sinatra
   module GetOrPost

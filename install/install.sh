@@ -68,7 +68,7 @@ set-credentials() {
    echo -n "Vegeta Frontend password: "
    read PASSWORD
 
-   sed -i "s/%w(.*/%w(${USERNAME} ${PASSWORD})/" /var/www/vegetafe/config.ru
+   echo -e "ENV['username'] = '${USERNAME}'\nENV['password'] = '${PASSWORD}'" > /var/www/vegetafe/env.rb
 
    echo -e "\nUser credentials set.\n"
 
@@ -138,7 +138,9 @@ configall() {
 After that modify the variables in \e[0;31m/etc/init.d/vegetafe\e[0m to reflect your changes.\n"
    fi
 
-   set-credentials
+   if [ ! -f /var/www/vegetafe/env.rb ]; then
+      set-credentials
+   fi
 }
 
 install() {

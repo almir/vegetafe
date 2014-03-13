@@ -29,6 +29,9 @@ ssl/
 # Ignore Gemfile.lock file
 Gemfile.lock
 
+# Do not track the file storing user credentials
+env.rb
+
 # Exclude RubyMine config files from tracking
 .idea/workspace.xml
 .idea/tasks.xml
