@@ -73,8 +73,8 @@ post '/' do
         # This is a dirty way of displaying a css formatted output within the html tags.
         out << '<!DOCTYPE html><html><head><title>Vegeta Load Test</title><link href="css/styles.css" rel="stylesheet"></head><body><h1>Executing Vegeta</h1><p><div id="content">'
         getlines(io, out)
-        out << "</div><div class=\"button-container\"><form action=\"/results?outfilename=#{outfilename}&rates=#{rate}\" method=\"post\"><input type=\"submit\" value=\"Show results\"></form>
-<form action=\"/resultsraw?outfilename=#{outfilename}\" method=\"post\"><input type=\"submit\" value=\"Show raw results\"></form></div></p></body></html>"
+        out << "</div><div class=\"button-container\"><form action=\"/results?outfilename=#{outfilename}&rates=#{rate}\" method=\"post\"><button type=\"submit\">Show results</button></form>
+<form action=\"/resultsraw?outfilename=#{outfilename}\" method=\"post\"><button type=\"submit\">Show raw results</button></form></div></p></body></html>"
       end
     end
   end
