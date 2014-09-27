@@ -81,8 +81,8 @@ configall() {
    if [ -z "$RUBY" ]; then
       curl -L get.rvm.io | bash -s stable
       source /etc/profile.d/rvm.sh
-      rvm install 2.1.2
-      rvm use 2.1.2 --default
+      rvm install 2.1.3
+      rvm use 2.1.3 --default
 
       # Update Ruby Gems and install bundler gem
       gem update --system && gem install bundler
