@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="RUBY_MODULE" version="4">
-  <component name="CompassSettings">
-    <option name="compassSupportEnabled" value="true" />
-  </component>
   <component name="ModuleRunConfigurationManager">
     <configuration default="false" name="main" type="RubyRunConfigurationType" factoryName="Ruby">
       <module name="vegetafe" />
@@ -33,18 +30,17 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="RVM: ruby-2.1.2" jdkType="RUBY_SDK" />
+    <orderEntry type="jdk" jdkName="RVM: ruby-2.1.4" jdkType="RUBY_SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.6.2, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="daemons (v1.1.9, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.0.3, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="haml (v4.0.5, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.2, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v1.5.2, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="rack-ssl (v1.3.3, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.4.4, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="thin (v1.6.1, RVM: ruby-2.1.2) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-2.1.2) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.7.4, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="daemons (v1.1.9, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="eventmachine (v1.0.3, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="haml (v4.0.5, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v1.5.2, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-protection (v1.5.2, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack-ssl (v1.3.3, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="sinatra (v1.4.4, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="thin (v1.6.1, RVM: ruby-2.1.4) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="tilt (v1.4.1, RVM: ruby-2.1.4) [gem]" level="application" />
   </component>
 </module>
-
