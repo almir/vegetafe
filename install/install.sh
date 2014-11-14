@@ -79,10 +79,11 @@ set-credentials() {
 configall() {
    # Install Ruby via RVM (http://tecadmin.net/how-to-install-ruby-2-0-0-on-centos-6-using-rvm)
    if [ -z "$RUBY" ]; then
+      gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
       curl -L get.rvm.io | bash -s stable
       source /etc/profile.d/rvm.sh
-      rvm install 2.1.3
-      rvm use 2.1.3 --default
+      rvm install 2.1.4
+      rvm use 2.1.4 --default
 
       # Update Ruby Gems and install bundler gem
       gem update --system && gem install bundler
