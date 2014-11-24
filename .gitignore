@@ -33,5 +33,4 @@ Gemfile.lock
 env.rb
 
 # Exclude RubyMine config files from tracking
-.idea/workspace.xml
-.idea/tasks.xml
+.idea/
