@@ -79,8 +79,8 @@ set-credentials() {
 configall() {
    # Install Ruby via RVM (http://tecadmin.net/how-to-install-ruby-2-0-0-on-centos-6-using-rvm)
    if [ -z "$RUBY" ]; then
-      gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
-      curl -L get.rvm.io | bash -s stable
+      gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
+      curl -L https://get.rvm.io | bash -s stable
       source /etc/profile.d/rvm.sh
       rvm install 2.3.5
       rvm use 2.3.5 --default
