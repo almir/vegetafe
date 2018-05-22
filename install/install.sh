@@ -82,8 +82,8 @@ configall() {
       gpg2 --keyserver hkp://keys.gnupg.net --recv-keys D39DC0E3
       curl -L get.rvm.io | bash -s stable
       source /etc/profile.d/rvm.sh
-      rvm install 2.1.5
-      rvm use 2.1.5 --default
+      rvm install 2.3.5
+      rvm use 2.3.5 --default
 
       # Update Ruby Gems and install bundler gem
       gem update --system && gem install bundler
